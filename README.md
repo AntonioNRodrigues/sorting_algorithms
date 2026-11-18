@@ -33,5 +33,19 @@ This project contains implementations of several major sorting algorithms in Jav
 - **Time Complexity**: O(n log n)
 
 ## How to Run
-1. Compile the Java files.
-2. Execute the main class to see the sorting algorithms in action.
+This project uses Maven. From the project root:
+
+1. Run the tests:
+   ```
+   mvn test
+   ```
+2. Compile the project:
+   ```
+   mvn compile
+   ```
+3. Package as a JAR:
+   ```
+   mvn package
+   ```
+
+`BuiltInSort` can be run directly via its `main` method as a demo.
