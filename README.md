@@ -1,51 +1,81 @@
 # Sorting Algorithms in Java
 
-This project contains implementations of several major sorting algorithms in Java. Each algorithm includes its implementation and a brief explanation of its time complexity using Big O notation.
+A small, self-contained Java project that implements several classic sorting algorithms. Each algorithm comes with its implementation and a short note on its time/space complexity. The project is built with Maven and tested with JUnit 5.
 
-## Sorting Algorithms
+## Algorithms
 
-### 1. Bubble Sort
-- **Description**: A simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
-- **Time Complexity**: O(n^2)
+| # | Algorithm | Method | Time (best / avg / worst) | Space |
+|---|-----------|--------|---------------------------|-------|
+| 1 | Bubble Sort | `sort(int[])` | O(n) / O(n²) / O(n²) | O(1) |
+| 2 | Selection Sort | `sort(int[])` | O(n²) / O(n²) / O(n²) | O(1) |
+| 3 | Insertion Sort | `sort(int[])` | O(n) / O(n²) / O(n²) | O(1) |
+| 4 | Merge Sort | `sort(int[], int, int)` | O(n log n) / O(n log n) / O(n log n) | O(n) |
+| 5 | Quick Sort | `sort(int[], int, int)` | O(n log n) / O(n log n) / O(n²) | O(log n) |
+| 6 | Heap Sort | `sort(int[])` | O(n log n) / O(n log n) / O(n log n) | O(1) |
+| 7 | Built-in Sort | `sortArray(int[])` / `sortList(List<Integer>)` | O(n) / O(n log n) / O(n log n) | O(n) |
 
-### 2. Selection Sort
-- **Description**: A comparison-based algorithm that sorts an array by repeatedly finding the minimum element from the unsorted part and putting it at the beginning.
-- **Time Complexity**: O(n^2)
+> Merge Sort and Quick Sort require the full index range on the first call, e.g. `sort(arr, 0, arr.length - 1)`.
 
-### 3. Insertion Sort
-- **Description**: A comparison-based algorithm that builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms.
-- **Time Complexity**: O(n^2)
+## Requirements
 
-### 4. Merge Sort
-- **Description**: A divide and conquer algorithm that divides the array into halves, sorts them, and then merges them back together.
-- **Time Complexity**: O(n log n)
+- Java 25 (see `maven.compiler.release` in `pom.xml`)
+- Apache Maven 3.8+
 
-### 5. Quick Sort
-- **Description**: A divide and conquer algorithm that works by selecting a 'pivot' element and partitioning the array around the pivot, putting elements less than the pivot on one side and greater elements on the other.
-- **Time Complexity**: O(n log n) on average; O(n^2) in the worst case
+## Getting Started
 
-### 6. Heap Sort
-- **Description**: A comparison-based sorting technique based on the binary heap data structure. It is similar to selection sort where we first find the maximum element and place the maximum element at the end.
-- **Time Complexity**: O(n log n)
+Clone the repository and build:
 
-### 7. Built-in Sort (Using Java's Native Sorting Algorithms)
-- **Description**: Uses Java's built-in sorting algorithms provided by the `Collections` and `Arrays` classes. These classes use the highly efficient Tim Sort algorithm, which is a hybrid of merge sort and insertion sort.
-- **Time Complexity**: O(n log n)
+```bash
+git clone https://github.com/AntonioNRodrigues/sorting_algorithms.git
+cd sorting_algorithms
+mvn compile
+```
 
-## How to Run
-This project uses Maven. From the project root:
+## Usage
 
-1. Run the tests:
-   ```
-   mvn test
-   ```
-2. Compile the project:
-   ```
-   mvn compile
-   ```
-3. Package as a JAR:
-   ```
-   mvn package
-   ```
+Every sorter sorts an `int[]` in place (except `BuiltInSort`, which also handles `List<Integer>`).
 
-`BuiltInSort` can be run directly via its `main` method as a demo.
+```java
+int[] data = {5, 2, 8, 3, 1};
+
+new BubbleSort().sort(data);
+// data -> [1, 2, 3, 5, 8]
+
+int[] data2 = {5, 2, 8, 3, 1};
+new MergeSort().sort(data2, 0, data2.length - 1);
+
+// Java's built-in (TimSort) for arrays and lists
+BuiltInSort builtIn = new BuiltInSort();
+builtIn.sortArray(data);
+builtIn.sortList(java.util.Arrays.asList(5, 2, 8, 3, 1));
+```
+
+Run the built-in demo directly:
+
+```bash
+mvn compile
+java -cp target/classes BuiltInSort
+```
+
+## Running Tests
+
+```bash
+mvn test
+```
+
+The test suite covers each algorithm with `BubbleSortTest`, `SelectionSortTest`, `InsertionSortTest`, `MergeSortTest`, `QuickSortTest`, and `HeapSortTest`.
+
+## Project Structure
+
+```
+sorting_algorithms/
+├── pom.xml
+├── src/
+│   ├── main/java/        # Sorting implementations
+│   └── test/java/        # JUnit 5 tests
+└── README.md
+```
+
+## License
+
+Released into the public domain under [The Unlicense](LICENSE).
