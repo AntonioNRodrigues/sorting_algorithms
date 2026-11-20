@@ -4,15 +4,35 @@ A small, self-contained Java project that implements several classic sorting alg
 
 ## Algorithms
 
-| # | Algorithm | Method | Time (best / avg / worst) | Space |
-|---|-----------|--------|---------------------------|-------|
-| 1 | Bubble Sort | `sort(int[])` | O(n) / O(n²) / O(n²) | O(1) |
-| 2 | Selection Sort | `sort(int[])` | O(n²) / O(n²) / O(n²) | O(1) |
-| 3 | Insertion Sort | `sort(int[])` | O(n) / O(n²) / O(n²) | O(1) |
-| 4 | Merge Sort | `sort(int[], int, int)` | O(n log n) / O(n log n) / O(n log n) | O(n) |
-| 5 | Quick Sort | `sort(int[], int, int)` | O(n log n) / O(n log n) / O(n²) | O(log n) |
-| 6 | Heap Sort | `sort(int[])` | O(n log n) / O(n log n) / O(n log n) | O(1) |
-| 7 | Built-in Sort | `sortArray(int[])` / `sortList(List<Integer>)` | O(n) / O(n log n) / O(n log n) | O(n) |
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Algorithm</th>
+      <th>Method</th>
+      <th colspan="3">Time Complexity</th>
+      <th>Space</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Bubble Sort</td><td><code>sort(int[])</code></td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+    <tr><td>2</td><td>Selection Sort</td><td><code>sort(int[])</code></td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+    <tr><td>3</td><td>Insertion Sort</td><td><code>sort(int[])</code></td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td></tr>
+    <tr><td>4</td><td>Merge Sort</td><td><code>sort(int[], int, int)</code></td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n)</td></tr>
+    <tr><td>5</td><td>Quick Sort</td><td><code>sort(int[], int, int)</code></td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td><td>O(log n)</td></tr>
+    <tr><td>6</td><td>Heap Sort</td><td><code>sort(int[])</code></td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(1)</td></tr>
+    <tr><td>7</td><td>Built-in Sort</td><td><code>sortArray(int[])</code> / <code>sortList(List&lt;Integer&gt;)</code></td><td>O(n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n)</td></tr>
+  </tbody>
+</table>
 
 > Merge Sort and Quick Sort require the full index range on the first call, e.g. `sort(arr, 0, arr.length - 1)`.
 
@@ -78,4 +98,4 @@ sorting_algorithms/
 
 ## License
 
-Released into the public domain under [The Unlicense](LICENSE).
+Released under the [MIT License](LICENSE).
